@@ -7,17 +7,16 @@ import json
 import os.path
 import sys
 
-
+# Добавление студента
 def show_add(students, name, groop, marks):
-    """
-    Добавить данные о студенте
-    """
+    # Добавить данные о студенте
     students.append(
         {"name": name, "groop": groop, "marks": [int(i) for i in marks.split()]}
     )
     return students
 
 
+# Вывод студентов
 def show_display(students):
     # Заголовок таблицы.
     line = "+-{}-+-{}-+-{}-+".format("-" * 30, "-" * 20, "-" * 9)
@@ -37,6 +36,7 @@ def show_display(students):
     print(line)
 
 
+# Выбор студентов со средним балом выше 4
 def show_select(students):
     result = []
     for idx, student in enumerate(students, 1):
@@ -46,6 +46,7 @@ def show_select(students):
     return result
 
 
+# Вывод информации о командах
 def help():
     # Вывести справку о работе с программой.
     print("Список команд:\n")
@@ -57,11 +58,13 @@ def help():
     print("exit - завершить работу с программой.")
 
 
+# Сохранение в файл
 def save_students(file_name, students):
     with open(file_name, "w", encoding="utf-8") as fout:
         json.dump(students, fout, ensure_ascii=False, indent=4)
 
 
+# загрузка из файла
 def load_students(file_name):
     with open(file_name, "r", encoding="utf-8") as fin:
         return json.load(fin)
