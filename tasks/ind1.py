@@ -25,7 +25,7 @@ def show_display(students):
     print(line)
 
     # Вывести данные о всех студентах.
-    for idx, student in enumerate(students, 1):
+    for student in students:
         print(
             "| {:<30} | {:<20} | {:>7} |".format(
                 student.get("name", ""),
@@ -39,7 +39,7 @@ def show_display(students):
 # Выбор студентов со средним балом выше 4
 def show_select(students):
     result = []
-    for idx, student in enumerate(students, 1):
+    for student in students:
         res = all(int(x) > 3 for x in student["marks"])
         if res:
             result.append(student)
