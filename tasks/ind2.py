@@ -8,7 +8,7 @@ import os.path
 import sys
 from dotenv import load_dotenv
 
-# Добавление студента
+
 def show_add(students, name, groop, marks):
     """
     Добавить данные о студенте
@@ -19,7 +19,6 @@ def show_add(students, name, groop, marks):
     return students
 
 
-# Вывод студентов
 def show_display(students):
     """
     Вывести данные о студентах.
@@ -42,7 +41,6 @@ def show_display(students):
     print(line)
 
 
-# Выбор студентов со средним балом выше 4
 def show_select(students):
     """
     Выбрать студентов со средним баллом не ниже 4.
@@ -55,7 +53,6 @@ def show_select(students):
     return result
 
 
-# Вывод информации о командах
 def help():
     """
     Вывести список комманд
@@ -70,7 +67,6 @@ def help():
     print("exit - завершить работу с программой.")
 
 
-# Сохранение в файл
 def save_students(file_name, students):
     """
     Сохранить всех студентов в файл JSON.
@@ -79,7 +75,6 @@ def save_students(file_name, students):
         json.dump(students, fout, ensure_ascii=False, indent=4)
 
 
-# загрузка из файла
 def load_students(file_name):
     """
     Загрузить всех студентов из файла JSON.
