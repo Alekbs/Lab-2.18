@@ -9,6 +9,9 @@ import sys
 
 # Добавление студента
 def show_add(students, name, groop, marks):
+    """
+    Добавить данные о студенте
+    """
     # Добавить данные о студенте
     students.append(
         {"name": name, "groop": groop, "marks": [int(i) for i in marks.split()]}
@@ -18,6 +21,9 @@ def show_add(students, name, groop, marks):
 
 # Вывод студентов
 def show_display(students):
+    """
+    Вывести данные о студентах.
+    """
     # Заголовок таблицы.
     line = "+-{}-+-{}-+-{}-+".format("-" * 30, "-" * 20, "-" * 9)
     print(line)
@@ -38,6 +44,9 @@ def show_display(students):
 
 # Выбор студентов со средним балом выше 4
 def show_select(students):
+    """
+    Выбрать студентов со средним баллом не ниже 4.
+    """
     result = []
     for student in students:
         res = all(int(x) > 3 for x in student["marks"])
@@ -48,7 +57,9 @@ def show_select(students):
 
 # Вывод информации о командах
 def help():
-    # Вывести справку о работе с программой.
+    """
+    Вывести список комманд
+    """
     print("Список команд:\n")
     print("add - добавить студента;")
     print("display - вывести список студентов;")
@@ -60,17 +71,26 @@ def help():
 
 # Сохранение в файл
 def save_students(file_name, students):
+    """
+    Сохранить всех студентов в файл JSON.
+    """
     with open(file_name, "w", encoding="utf-8") as fout:
         json.dump(students, fout, ensure_ascii=False, indent=4)
 
 
 # загрузка из файла
 def load_students(file_name):
+    """
+    Загрузить всех студентов из файла JSON.
+    """
     with open(file_name, "r", encoding="utf-8") as fin:
         return json.load(fin)
 
 
 def main(command_line=None):
+    """
+    Главная функция программы.
+    """
     # Создать родительский парсер для определения имени файла.
     file_parser = argparse.ArgumentParser(add_help=False)
     file_parser.add_argument("-d", "--data", action="store", help="The data file name")
